@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <h2>Usuarios disponibles</h2>
+  <ion-list>
+    <ion-item *ngFor="let item of list">
+      <ion-avatar item-left>
+        <img src="img/avatar-finn.png">
+      </ion-avatar>
+      <h2>{{ item.Nombre }}</h2>
+      <h3>{{ item.Apellido }}</h3>
+      <p>{{ item.Telefono }} - {{ item.Estado }}</p>
+    </ion-item>
+  </ion-list>
+</ion-content>
