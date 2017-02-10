@@ -14,14 +14,28 @@ export class HomePage {
 
   constructor(
     public navCtrl: NavController,
-    users: Users
+    public users: Users
   ) {
-    users.getListUser().then(results => {
-      console.log(results);
-      this.list = results;
-    }).catch(err => {
-      console.log(err);
-    });
+    this.loadList();
+  }
+
+  loadList() {
+    return new Promise(resolve => {
+      this.users.getListUser().then(results => {
+        console.log(results);
+        this.list = results;
+        
+        return resolve();
+      }).catch(err => {        
+        console.log(err);
+
+        return resolve();
+      });
+    })
+  }
+
+  doRefresh(refresher) {
+    this.loadList().then(() => refresher.complete());
   }
 
 }

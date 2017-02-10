@@ -1,11 +1,15 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="verde">
     <ion-title>
-      About
+      Incentivo
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-
+<ion-content padding  class="card-background-page">
+  <ion-card *ngFor="let item of list_cards">
+    <img [src]="item.img" />
+    <div class="card-title">{{ item.title }}</div>
+    <div class="card-subtitle">{{ item.subtitle }}</div>
+  </ion-card>
 </ion-content>
